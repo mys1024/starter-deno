@@ -1,8 +1,8 @@
 {
   "tasks": {
-    "run": "deno run --lock=deno.lock ./src/main.ts",
-    "run:watch": "deno run --lock=deno.lock --watch ./src/main.ts",
-    "cache": "deno cache --lock=deno.lock ./src/main.ts",
-    "cache:lock-write": "deno cache --lock=deno.lock --lock-write ./src/main.ts"
+    "run":        "deno run   --lock=deno.lock ./src/main.ts",
+    "run:watch":  "deno run   --lock=deno.lock --watch ./src/main.ts",
+    "cache":      "deno cache --lock=deno.lock ./src/main.ts",
+    "cache:lock": "deno cache --lock=deno.lock --lock-write ./src/main.ts"
   }
 }
