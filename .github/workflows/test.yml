@@ -30,6 +30,3 @@ jobs:
 
       - name: Test
         run: deno task test
-
-      - name: Coverage
-        run: deno task test:cover
