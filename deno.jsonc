@@ -6,6 +6,7 @@
     "cache:lock": "deno cache --lock=deno.lock --lock-write ./src/deps.ts",
     "test":       "deno test",
     "test:watch": "deno test --watch",
-    "test:cover": "deno test --coverage=cov_profile && deno coverage cov_profile"
+    "test:cover": "deno test --coverage=cov_profile",
+    "coverage":   "deno coverage cov_profile"
   }
 }
