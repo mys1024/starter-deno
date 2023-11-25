@@ -28,6 +28,9 @@ jobs:
         with:
           deno-version: ${{ matrix.deno-version }}
 
+      - name: Cache
+        run: deno task cache
+
       - name: Test
         run: deno task test:cover
 
