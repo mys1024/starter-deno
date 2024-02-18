@@ -1,12 +1,16 @@
 {
   "tasks": {
-    "run":        "deno run      --lock=deno.lock ./src/main.ts",
-    "run:watch":  "deno run      --lock=deno.lock --watch ./src/main.ts",
-    "cache":      "deno cache    --lock=deno.lock ./src/deps.ts",
-    "cache:lock": "deno cache    --lock=deno.lock --lock-write ./src/deps.ts",
-    "test":       "deno test",
-    "test:watch": "deno test     --watch",
-    "test:cover": "deno test     --coverage=cov_profile",
-    "coverage":   "deno coverage cov_profile"
+    "run":          "deno run --lock=deno.lock ./src/main.ts",
+    "run:watch":    "deno run --lock=deno.lock --watch ./src/main.ts",
+    "cache":        "deno cache --lock=deno.lock --lock-write ./src/main.ts",
+    "cache:reload": "deno cache --lock=deno.lock --reload ./src/main.ts",
+    "test":         "deno test",
+    "test:watch":   "deno test --watch",
+    "test:cover":   "deno test --coverage",
+    "cover":        "deno coverage",
+    "cover:html":   "deno coverage --html"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@0.216"
   }
 }
