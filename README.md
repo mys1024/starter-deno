@@ -1,3 +1,3 @@
 # starter-deno
 
-A [Deno](https://deno.land/) stater template.
+A [Deno](https://deno.com/) stater template.
