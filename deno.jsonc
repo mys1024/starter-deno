@@ -10,7 +10,8 @@
     "test:watch":   "deno test --watch",
     "test:cover":   "deno test --coverage",
     "cover":        "deno coverage",
-    "cover:html":   "deno coverage --html"
+    "cover:html":   "deno coverage --html",
+    "publish:dry":  "deno publish --dry-run"
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@0.216"
