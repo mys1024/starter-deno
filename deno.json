@@ -2,15 +2,16 @@
   "name": "",
   "version": "0.0.1",
   "tasks": {
-    "run":          "deno run --lock=deno.lock src/main.ts",
-    "run:watch":    "deno run --lock=deno.lock --watch src/main.ts",
-    "cache":        "deno cache --lock=deno.lock --lock-write src/main.ts src/**/*.test.ts",
-    "cache:reload": "deno cache --lock=deno.lock --reload src/main.ts src/**/*.test.ts",
+    "run":          "deno run src/main.ts",
+    "run:watch":    "deno run --watch src/main.ts",
+    "cache":        "deno cache --lock-write src/main.ts src/**/*.test.ts",
+    "cache:reload": "deno cache --reload src/main.ts src/**/*.test.ts",
     "test":         "deno test",
     "test:watch":   "deno test --watch",
     "test:cover":   "deno test --coverage",
     "cover":        "deno coverage",
     "cover:html":   "deno coverage --html",
+    "publish":      "deno publish",
     "publish:dry":  "deno publish --dry-run"
   },
   "imports": {
