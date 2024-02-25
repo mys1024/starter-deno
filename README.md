@@ -8,7 +8,7 @@ When you use this template, try follow the checklist to update your info and con
 
 - [ ] Replace `mys1024` with your name in `LICENSE` and `README.md`
 - [ ] Complete the `name` field in `deno.jsonc`
-- [ ] Delete the line `if: ${{ false }}` in `.github/workflows/publish.yml` if you want to publish this package to [JSR](https://jsr.io)
+- [ ] Delete the line `if: ${{ false }}` in `.github/workflows/release.yml` if you want to publish this package to [JSR](https://jsr.io)
 
 ## License
 
