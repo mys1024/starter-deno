@@ -9,6 +9,7 @@
     "test": "deno test",
     "test:watch": "deno test --watch",
     "test:cov": "deno test --coverage && deno coverage && deno coverage --html",
+    "bump": "deno run -A jsr:@mys/bump@1",
     "publish": "deno publish"
   },
   "imports": {
