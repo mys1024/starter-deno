@@ -14,9 +14,8 @@ jobs:
       matrix:
         deno-version: [v1.x, vx.x.x]
         os: [ubuntu-latest, windows-latest]
-      fail-fast: false
 
-    name: deno ${{ matrix.deno-version }}, ${{ matrix.os }}
+    name: Deno ${{ matrix.deno-version }}, ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -29,7 +28,4 @@ jobs:
           deno-version: ${{ matrix.deno-version }}
 
       - name: Test
-        run: deno task test:cover
-
-      - name: Print coverage
-        run: deno task cover
+        run: deno task test:cov

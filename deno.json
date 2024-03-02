@@ -1,6 +1,6 @@
 {
   "name": "",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "tasks": {
     "run": "deno run src/main.ts",
     "run:watch": "deno run --watch src/main.ts",
@@ -8,11 +8,8 @@
     "cache:reload": "deno cache --reload src/main.ts src/**/*.test.ts",
     "test": "deno test",
     "test:watch": "deno test --watch",
-    "test:cover": "deno test --coverage",
-    "cover": "deno coverage",
-    "cover:html": "deno coverage --html",
-    "publish": "deno publish",
-    "publish:dry": "deno publish --dry-run"
+    "test:cov": "deno test --coverage && deno coverage && deno coverage --html",
+    "publish": "deno publish"
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@0.216"
