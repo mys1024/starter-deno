@@ -12,4 +12,4 @@ When you use this template, try follow the checklist to update your info and con
 
 ## License
 
-[MIT](./LICENSE) License &copy; 2024-PRESENT mys1024
+[MIT](./LICENSE) License &copy; 2024-PRESENT [mys1024](https://github.com/mys1024)
