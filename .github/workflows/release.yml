@@ -3,7 +3,8 @@ name: Release
 on:
   push:
     tags:
-      - 'replace-this-tag-with-v*' # 'v*'
+      # Replace the tag below with 'v*' if you want to publish this package to JSR.
+      - 'REPLACE_THIS_TAG'
 
 jobs:
   test:
