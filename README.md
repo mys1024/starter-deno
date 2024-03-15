@@ -1,12 +1,16 @@
 # starter-deno
 
+[![GitHub License](https://img.shields.io/github/license/mys1024/starter-deno?&style=flat-square)](./LICENSE)
+[![GitHub Actions Workflow CI Status](https://img.shields.io/github/actions/workflow/status/mys1024/starter-deno/ci.yml?label=CI&&style=flat-square)](https://github.com/mys1024/starter-deno/actions/workflows/ci.yml)
+
 A [Deno](https://deno.com/) stater template.
 
 ## Checklist
 
-When you use this template, try follow the checklist to update your info and config properly:
+When you use this template, try follow the checklist to update your info and configs properly:
 
-- [ ] Replace `mys1024` with your name in [LICENSE](LICENSE) and [README.md](README.md)
+- [ ] Globally replace `mys1024` with your name
+- [ ] Globally replace `starter-deno` with your project name
 - [ ] Complete the `name` field in [deno.json](deno.json)
 - [ ] If you want to publish this package to [JSR](https://jsr.io), delete the line `if: ${{ false }}` in [.github/workflows/release.yml](.github/workflows/release.yml)
 
