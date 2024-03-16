@@ -29,3 +29,6 @@ jobs:
 
       - name: Test
         run: deno task test:cov
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2.2.3

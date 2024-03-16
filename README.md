@@ -1,7 +1,7 @@
 # starter-deno
 
-[![GitHub License](https://img.shields.io/github/license/mys1024/starter-deno?&style=flat-square)](./LICENSE)
-[![GitHub Actions Workflow CI Status](https://img.shields.io/github/actions/workflow/status/mys1024/starter-deno/ci.yml?label=CI&&style=flat-square)](https://github.com/mys1024/starter-deno/actions/workflows/ci.yml)
+[![license](https://img.shields.io/github/license/mys1024/starter-deno?&style=flat-square)](./LICENSE)
+[![workflow-ci](https://img.shields.io/github/actions/workflow/status/mys1024/starter-deno/ci.yml?label=CI&&style=flat-square)](https://github.com/mys1024/starter-deno/actions/workflows/ci.yml)
 
 A [Deno](https://deno.com/) stater template.
 
@@ -9,10 +9,10 @@ A [Deno](https://deno.com/) stater template.
 
 When you use this template, try follow the checklist to update your info and configs properly:
 
-- [ ] Globally replace `mys1024` with your name
-- [ ] Globally replace `starter-deno` with your project name
+- [ ] Replace `mys1024` with your name globally
+- [ ] Replace `starter-deno` with your project name globally
 - [ ] Complete the `name` field in [deno.json](deno.json)
-- [ ] Replace the [release workflow](.github/workflows/release.yml)'s trigger tag `'REPLACE_THIS_TAG'` with `'v*'` if you want to publish this package to [JSR](https://jsr.io)
+- [ ] Replace the trigger tag `'REPLACE_THIS_TAG'` of the [release workflow](.github/workflows/release.yml) with `'v*'` if you want to publish this package to [JSR](https://jsr.io)
 
 ## License
 
