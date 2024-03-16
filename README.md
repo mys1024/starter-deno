@@ -13,7 +13,7 @@ When you use this template, try follow the checklist to update your info and con
 - [ ] Replace `mys1024` with your name globally
 - [ ] Replace `starter-deno` with your project name globally
 - [ ] Complete the `name` field in [deno.json](deno.json)
-- [ ] Replace the trigger tag `'REPLACE_THIS_TAG'` of the [release workflow](.github/workflows/release.yml) with `'v*'` if you want to publish this package to [JSR](https://jsr.io)
+- [ ] Replace the trigger tag `REPLACE_THIS_TAG` of the [release workflow](.github/workflows/release.yml) with `v*` if you want to publish this package to [JSR](https://jsr.io)
 
 ## License
 
