@@ -14,8 +14,9 @@ jobs:
       matrix:
         deno-version: [vx.x.x]
         os: [ubuntu-latest, windows-latest]
+      fail-fast: false
 
-    name: Deno ${{ matrix.deno-version }}, ${{ matrix.os }}
+    name: Test on Deno ${{ matrix.deno-version }}, ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
 
     steps:
