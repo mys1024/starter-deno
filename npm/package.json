@@ -1,6 +1,6 @@
 {
   "name": "@mys-1024/starter-deno",
-  "version": "0.1.0",
+  "version": "",
   "description": "A Deno stater template.",
   "type": "module",
   "author": "mys1024",
@@ -17,7 +17,7 @@
     "dist"
   ],
   "scripts": {
-    "sync": "node scripts/sync.js",
+    "version": "node version.js",
     "build": "unbuild"
   },
   "exports": {
@@ -31,8 +31,6 @@
   "module": "./dist/main.mjs",
   "types": "./dist/main.d.ts",
   "devDependencies": {
-    "@types/node": "^20.11.28",
-    "typescript": "^5.4.2",
     "unbuild": "^2.0.0"
   }
 }
