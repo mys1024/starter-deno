@@ -7,3 +7,7 @@ node_modules
 .env
 coverage
 __snapshots__
+
+npm/src
+npm/README.md
+npm/LICENSE

@@ -1,6 +1,6 @@
 import { assertEquals } from "@std/assert";
-import { add } from "../src/main.ts";
+import { about } from "../src/main.ts";
 
-Deno.test("add()", () => {
-  assertEquals(add(1, 2), 3);
+Deno.test("about()", () => {
+  assertEquals(about(), "This is Deno stater template 🦕.");
 });

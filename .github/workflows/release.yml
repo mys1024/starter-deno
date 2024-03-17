@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      # Replace the tag below with "v*" if you want to publish this package to JSR.
+      # Replace the tag below with "v*" if you want to publish this package to JSR and npm.
       - REPLACE_THIS_TAG
 
 jobs:
@@ -39,6 +39,40 @@ jobs:
 
       - name: Publish to JSR
         run: deno publish
+
+  # If you don't want to publish this package to npm, please remove this job.
+  publish-to-npm:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    needs: publish-to-jsr
+
+    defaults:
+      run:
+        working-directory: npm
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          registry-url: 'https://registry.npmjs.org'
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Publish to npm
+        run: pnpm publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   changelog:
     name: Changelog

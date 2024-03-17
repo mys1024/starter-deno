@@ -1,5 +1,3 @@
-export function add(a: number, b: number): number {
-  return a + b;
+export function about() {
+  return "This is Deno stater template 🦕.";
 }
-
-console.log(`1 + 2 = ${add(1, 2)}`);

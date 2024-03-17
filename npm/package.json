@@ -1,0 +1,37 @@
+{
+  "name": "@mys-1024/starter-deno",
+  "version": "0.1.0",
+  "description": "A Deno stater template.",
+  "type": "module",
+  "author": "mys1024",
+  "packageManager": "pnpm@8.15.4",
+  "license": "MIT",
+  "homepage": "https://github.com/mys1024/starter-deno#readme",
+  "repository": "https://github.com/mys1024/starter-deno.git",
+  "keywords": [
+    "deno",
+    "starter",
+    "template"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node scripts/prebuild.js && unbuild"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.mjs",
+      "require": "./dist/main.cjs"
+    }
+  },
+  "main": "./dist/main.mjs",
+  "module": "./dist/main.mjs",
+  "types": "./dist/main.d.ts",
+  "devDependencies": {
+    "@types/node": "^20.11.28",
+    "typescript": "^5.4.2",
+    "unbuild": "^2.0.0"
+  }
+}
