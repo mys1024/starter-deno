@@ -11,28 +11,83 @@ on:
 jobs:
   test:
     strategy:
-      matrix:
-        deno-version: [vx.x.x]
-        os: [ubuntu-latest, windows-latest]
       fail-fast: false
+      matrix:
+        deno-version:
+          - v1.x
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
 
-    name: Test on Deno ${{ matrix.deno-version }}, ${{ matrix.os }}
+    name: Test on deno-${{ matrix.deno-version }}, ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
+
+    env:
+      DENO_DIR: ~/cache/deno
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Cache Deno dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.DENO_DIR }}
+          key: ${{ hashFiles('deno.lock') }}
 
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
           deno-version: ${{ matrix.deno-version }}
 
-      - name: Test
-        run: deno task test:cov
+      - name: Fmt check
+        run: deno fmt --check
 
+      - name: Lint
+        run: deno lint
+
+      - name: Test
+        run: deno task test:lcov
+
+      # If you don't need to upload the coverage reports, please remove this step.
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4.0.1
+        if: matrix.os == 'ubuntu-latest'
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          slug: mys1024/starter-deno
+          name: deno-${{ matrix.deno-version }}, ${{ matrix.os }}
+          files: cov.lcov
+
+  # If you don't need to publish this package to npm, please remove this job.
+  trial-build-for-npm:
+    name: Trial build for npm
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          package_json_file: npm/package.json
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          registry-url: 'https://registry.npmjs.org'
+          cache-dependency-path: npm/pnpm-lock.yaml
+          cache: pnpm
+
+      - name: Install
+        run: pnpm i -C npm
+
+      - name: Build
+        run: pnpm run -C npm build
+
+      - name: Publish to npm (dry-run)
+        run: pnpm publish -C npm --provenance --no-git-checks --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

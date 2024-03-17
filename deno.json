@@ -8,7 +8,8 @@
     "cache:reload": "deno cache --reload src/main.ts test/**/*.test.ts",
     "test": "deno test",
     "test:watch": "deno test --watch",
-    "test:cov": "deno test --coverage && deno coverage && deno coverage --html",
+    "test:lcov": "deno test --coverage && deno coverage --lcov --output=cov.lcov",
+    "lint": "deno lint && deno fmt --check",
     "bump": "deno run -A jsr:@mys/bump@1",
     "publish:dry": "deno publish --dry-run"
   },

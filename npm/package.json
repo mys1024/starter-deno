@@ -1,6 +1,6 @@
 {
   "name": "starter-deno",
-  "version": "",
+  "version": "0.0.0",
   "description": "A Deno stater template 🦕",
   "type": "module",
   "author": "mys1024",
@@ -17,8 +17,10 @@
     "dist"
   ],
   "scripts": {
-    "version": "node version.js",
-    "build": "unbuild"
+    "sync": "node scripts/sync.js",
+    "clean": "node scripts/clean.js",
+    "build": "pnpm run sync && unbuild",
+    "build:clean": "pnpm run build && pnpm run clean"
   },
   "exports": {
     ".": {
