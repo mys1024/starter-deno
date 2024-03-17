@@ -3,8 +3,7 @@ name: Release
 on:
   push:
     tags:
-      # Replace the tag below with "v*" if you want to publish this package to JSR and npm.
-      - REPLACE_THIS_TAG
+      - v*
 
 jobs:
   test:
@@ -21,6 +20,29 @@ jobs:
       - name: Test
         run: deno task test
 
+  changelog:
+    name: Changelog
+    runs-on: ubuntu-latest
+    needs: test
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+
+      - name: Changelog
+        run: deno run -A npm:changelogithub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # If you don't want to publish this package to JSR, please remove this job.
   publish-to-jsr:
     name: Publish to JSR
     runs-on: ubuntu-latest
@@ -44,7 +66,7 @@ jobs:
   publish-to-npm:
     name: Publish to npm
     runs-on: ubuntu-latest
-    needs: publish-to-jsr
+    needs: test
 
     defaults:
       run:
@@ -73,25 +95,3 @@ jobs:
         run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  changelog:
-    name: Changelog
-    runs-on: ubuntu-latest
-    needs: publish-to-jsr
-
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Deno
-        uses: denoland/setup-deno@v1
-
-      - name: Changelog
-        run: deno run -A npm:changelogithub
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
