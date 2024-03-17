@@ -17,7 +17,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "node scripts/prebuild.js && unbuild"
+    "sync": "node scripts/sync.js",
+    "build": "unbuild"
   },
   "exports": {
     ".": {
