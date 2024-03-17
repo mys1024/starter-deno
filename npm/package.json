@@ -1,5 +1,5 @@
 {
-  "name": "@mys-1024/starter-deno",
+  "name": "starter-deno",
   "version": "",
   "description": "A Deno stater template 🦕",
   "type": "module",

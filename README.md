@@ -19,8 +19,9 @@ A [Deno](https://deno.com/) stater template 🦕
 
 When you use this template, try follow the checklist to update your info and configs properly:
 
-- [ ] Replace `mys1024`, `mys-1024` and `mys` with your name globally
-- [ ] Replace `starter-deno` with your project name globally
+- [ ] Replace `mys1024` with your name globally
+- [ ] Replace `@mys/starter-deno` and `starter-deno` with your project name globally
+- [ ] Check and update the [release workflow](.github/workflows/release.yml)
 
 ## License
 
