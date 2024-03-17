@@ -1,5 +1,5 @@
 /**
- * This is Deno stater template 🦕.
+ * This is a Deno stater template 🦕
  */
 
 /**
@@ -7,5 +7,5 @@
  * @returns the string about the project.
  */
 export function about(): string {
-  return "This is Deno stater template 🦕.";
+  return "This is a Deno stater template 🦕";
 }
