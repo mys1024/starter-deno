@@ -18,10 +18,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Cache Deno dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ${{ env.DENO_DIR }}
-          key: ${{ hashFiles('deno.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('deno.lock') }}
 
       - name: Setup Deno
         uses: denoland/setup-deno@v1
