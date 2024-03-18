@@ -12,9 +12,15 @@
 [![workflow-ci](https://img.shields.io/github/actions/workflow/status/mys1024/starter-deno/ci.yml?label=ci&style=flat-square)](https://github.com/mys1024/starter-deno/actions/workflows/ci.yml)
 [![workflow-release](https://img.shields.io/github/actions/workflow/status/mys1024/starter-deno/release.yml?label=release&style=flat-square)](https://github.com/mys1024/starter-deno/actions/workflows/release.yml)
 
-A [Deno](https://deno.com/) stater template 🦕
+_A [Deno](https://deno.com/) stater template 🦕_
 
 </div>
+
+## Usage
+
+Click the badge below to create a new repository with this stater template:
+
+[![use-this-template](https://img.shields.io/badge/use-this%20template-%2386efac?style=for-the-badge&logo=github)](https://github.com/new?template_name=starter-deno&template_owner=mys1024)
 
 ## Checklist
 
@@ -24,7 +30,8 @@ configs properly:
 - [ ] Replace `mys1024` with your name globally
 - [ ] Replace `@mys/starter-deno` and `starter-deno` with your project name
       globally
-- [ ] Check and update the [release workflow](.github/workflows/release.yml)
+- [ ] Check and update the [ci workflow](.github/workflows/ci.yml) and
+      [release workflow](.github/workflows/release.yml)
 
 ## License
 
