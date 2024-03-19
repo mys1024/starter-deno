@@ -10,7 +10,6 @@
 [![license](https://img.shields.io/github/license/mys1024/starter-deno?&style=flat-square)](./LICENSE)<br/>
 [![coverage](https://img.shields.io/codecov/c/github/mys1024/starter-deno?style=flat-square)](https://app.codecov.io/gh/mys1024/starter-deno)
 [![workflow-ci](https://img.shields.io/github/actions/workflow/status/mys1024/starter-deno/ci.yml?label=ci&style=flat-square)](https://github.com/mys1024/starter-deno/actions/workflows/ci.yml)
-[![workflow-release](https://img.shields.io/github/actions/workflow/status/mys1024/starter-deno/release.yml?label=release&style=flat-square)](https://github.com/mys1024/starter-deno/actions/workflows/release.yml)
 
 _A [Deno](https://deno.com/) stater template 🦕_
 
