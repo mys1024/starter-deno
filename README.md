@@ -30,7 +30,7 @@ configs properly:
 - [ ] Replace `mys1024` with your name globally
 - [ ] Replace `@mys/starter-deno` and `starter-deno` with your project name
       globally
-- [ ] Check and update [workflows](.github/workflows)
+- [ ] Check and update the [workflows](.github/workflows)
 
 ## License
 
