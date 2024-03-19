@@ -32,7 +32,7 @@
       "types": "./dist/main.d.ts"
     }
   },
-  "dependencies": {
+  "devDependencies": {
     "tsup": "^8.0.2",
     "typescript": "^5.4.2"
   }
