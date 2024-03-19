@@ -30,8 +30,7 @@ configs properly:
 - [ ] Replace `mys1024` with your name globally
 - [ ] Replace `@mys/starter-deno` and `starter-deno` with your project name
       globally
-- [ ] Check and update the [ci workflow](.github/workflows/ci.yml) and
-      [release workflow](.github/workflows/release.yml)
+- [ ] Check and update the [ci workflow](.github/workflows/ci.yml)
 
 ## License
 

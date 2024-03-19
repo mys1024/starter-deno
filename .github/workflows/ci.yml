@@ -2,6 +2,8 @@ name: CI
 
 on:
   push:
+    tags:
+      - v* # This event will create a release
     branches:
       - main
   pull_request:
@@ -9,6 +11,23 @@ on:
       - main
 
 jobs:
+  event-check:
+    name: Event check
+    runs-on: ubuntu-latest
+    outputs:
+      is_release: ${{ steps.check.outputs.is_release }}
+
+    steps:
+      - name: Check if is a release event
+        id: check
+        run: |
+          echo "github.event_name: ${{ github.event_name }}"
+          echo "github.ref: ${{ github.ref }}"
+          echo "is_release=${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') && 'true' || 'false' }}" >> "$GITHUB_OUTPUT"
+          echo ""
+          echo "outputs:"
+          cat "$GITHUB_OUTPUT"
+
   test:
     strategy:
       fail-fast: false
@@ -19,10 +38,8 @@ jobs:
           - ubuntu-latest
           - windows-latest
           - macos-latest
-
     name: Test on deno-${{ matrix.deno-version }}, ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-
     env:
       DENO_DIR: ~/cache/deno
 
@@ -34,7 +51,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ env.DENO_DIR }}
-          key: ${{ runner.os }}-${{ hashFiles('deno.lock') }}
+          key: ${{ matrix.os }}-${{ hashFiles('deno.lock') }}
 
       - name: Setup Deno
         uses: denoland/setup-deno@v1
@@ -56,14 +73,62 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          name: deno-${{ matrix.deno-version }}, ${{ matrix.os }}
           files: cov.lcov
 
-  # If you don't need to publish this package to npm, please remove this job.
-  trial-build-for-npm:
-    name: Trial build for npm
+  changelog:
+    needs:
+      - event-check
+      - test
+    if: needs.event-check.outputs.is_release == 'true'
+    name: Changelog
     runs-on: ubuntu-latest
-    needs: test
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+
+      - name: Changelog
+        run: deno run -A npm:changelogithub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # If you don't want to publish this package to JSR, please remove this job.
+  publish-to-jsr:
+    needs:
+      - event-check
+      - test
+    name: Publish to JSR (${{ needs.event-check.outputs.is_release == 'true' && 'real' || 'dry-run' }})
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+
+      - name: Publish (${{ needs.event-check.outputs.is_release == 'true' && 'real' || 'dry-run' }})
+        run: deno publish ${{ needs.event-check.outputs.is_release == 'true' && '' || '--dry-run' }}
+
+  # If you don't need to publish this package to npm, please remove this job.
+  publish-to-npm:
+    needs:
+      - event-check
+      - test
+    name: Publish to npm (${{ needs.event-check.outputs.is_release == 'true' && 'real' || 'dry-run' }})
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
 
     steps:
       - name: Checkout repository
@@ -87,7 +152,7 @@ jobs:
       - name: Build
         run: pnpm run -C npm build
 
-      - name: Publish to npm (dry-run)
-        run: pnpm publish -C npm --provenance --no-git-checks --dry-run
+      - name: Publish (${{ needs.event-check.outputs.is_release == 'true' && 'real' || 'dry-run' }})
+        run: pnpm publish -C npm --provenance --no-git-checks ${{ needs.event-check.outputs.is_release == 'true' && '' || '--dry-run' }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
