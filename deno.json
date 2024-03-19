@@ -26,5 +26,11 @@
       "LICENSE",
       "deno.json"
     ]
+  },
+  "lint": {
+    "exclude": ["npm"]
+  },
+  "fmt": {
+    "exclude": ["npm"]
   }
 }
