@@ -1,6 +1,6 @@
 import { cpSync, readFileSync, writeFileSync } from "node:fs";
 
-// sync the version of package.json
+// prepare the version for package.json
 const denoJson = JSON.parse(
   readFileSync(resolve("../../deno.json"), { encoding: "utf-8" }),
 );
@@ -14,7 +14,7 @@ writeFileSync(
   { encoding: "utf-8" },
 );
 
-// sync files
+// prepare files
 const files = ["../../src", "../../README.md", "../../LICENSE"];
 for (const file of files) {
   cpSync(resolve(file), resolve(file.slice(3)), {

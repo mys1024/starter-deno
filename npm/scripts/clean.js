@@ -1,6 +1,6 @@
 import { readFileSync, rmSync, writeFileSync } from "node:fs";
 
-// clean the version of package.json
+// clean the version from package.json
 const packageJson = JSON.parse(
   readFileSync(resolve("../package.json"), { encoding: "utf-8" }),
 );

@@ -3,6 +3,7 @@
   "deno.lint": true,
   "deno.unstable": false,
   "deno.cacheOnSave": true,
+  "deno.disablePaths": ["npm"],
   "[javascript]": {
     "editor.defaultFormatter": "denoland.vscode-deno",
     "editor.formatOnSave": true
@@ -25,6 +26,7 @@
     "deno",
     "denoland",
     "lcov",
-    "minzip"
+    "minzip",
+    "tsup"
   ]
 }
