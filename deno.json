@@ -1,6 +1,6 @@
 {
   "name": "@mys/starter-deno",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "tasks": {
     "run": "deno run src/main.ts",
     "run:watch": "deno run --watch src/main.ts",
@@ -28,9 +28,13 @@
     ]
   },
   "lint": {
-    "exclude": ["npm"]
+    "exclude": [
+      "npm"
+    ]
   },
   "fmt": {
-    "exclude": ["npm"]
+    "exclude": [
+      "npm"
+    ]
   }
 }
