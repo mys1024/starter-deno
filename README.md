@@ -31,6 +31,8 @@ configs properly:
 - [ ] Replace `@mys/starter-deno` and `starter-deno` with your project name
       globally
 - [ ] Check and update the [workflows](.github/workflows)
+- [ ] Update the Workflow permissions to "Read and write permissions" in the
+      Actions settings page of your repository on Github.
 
 ## License
 

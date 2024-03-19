@@ -126,6 +126,6 @@ jobs:
         run: pnpm run -C npm build
 
       - name: Publish (${{ inputs.is-release && 'real' || 'dry-run' }})
-        run: pnpm publish -C npm --provenance --no-git-checks ${{ inputs.is-release && ' ' || '--dry-run' }}
+        run: pnpm publish -C npm --no-git-checks --provenance --access public ${{ inputs.is-release && ' ' || '--dry-run' }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
