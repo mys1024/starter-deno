@@ -32,7 +32,7 @@ configs properly:
       globally
 - [ ] Check and update the [workflows](.github/workflows)
 - [ ] Update the Workflow permissions to "Read and write permissions" in the
-      Actions settings page of your repository on Github.
+      "Actions" settings of your new repository on Github.
 
 ## License
 
