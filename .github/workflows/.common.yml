@@ -82,8 +82,8 @@ jobs:
     name: Publish to JSR (${{ inputs.is-release && 'real' || 'dry-run' }})
     runs-on: ubuntu-latest
     permissions:
-      id-token: write
       contents: read
+      id-token: write
 
     steps:
       - name: Checkout repository
@@ -101,6 +101,7 @@ jobs:
     name: Publish to npm (${{ inputs.is-release && 'real' || 'dry-run' }})
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       id-token: write
 
     steps:
