@@ -4,14 +4,13 @@
   "tasks": {
     "run": "deno run src/main.ts",
     "run:watch": "deno run --watch src/main.ts",
-    "cache": "deno cache --lock-write src/main.ts test/**/*.test.ts",
-    "cache:reload": "deno cache --reload src/main.ts test/**/*.test.ts",
-    "lint": "deno lint && deno fmt --check",
+    "cache": "deno cache --lock-write src/**/*.ts test/**/*.ts",
+    "cache:reload": "deno cache --lock-write --reload src/**/*.ts test/**/*.ts",
+    "check": "deno check src/**/*.ts test/**/*.ts && deno lint && deno fmt --check",
     "test": "deno test",
     "test:watch": "deno test --watch",
     "test:lcov": "deno test --coverage && deno coverage --lcov --output=cov.lcov",
-    "publish:dry-run": "deno publish --dry-run",
-    "bump": "deno task lint && deno task test && deno task publish:dry-run && deno run -A jsr:@mys/bump@1"
+    "bump": "deno task check && deno task test && deno publish --dry-run && echo && echo ✅ Checks passed, start bumping... && echo && deno run -A jsr:@mys/bump@1"
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@0.220"
@@ -22,9 +21,10 @@
   "publish": {
     "include": [
       "src",
-      "README*.md",
       "LICENSE",
-      "deno.json"
+      "README*.md",
+      "deno.json",
+      "deno.jsonc"
     ]
   },
   "lint": {
