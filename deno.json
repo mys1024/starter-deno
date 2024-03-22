@@ -6,12 +6,12 @@
     "run:watch": "deno run --watch src/main.ts",
     "cache": "deno cache --lock-write src/main.ts test/**/*.test.ts",
     "cache:reload": "deno cache --reload src/main.ts test/**/*.test.ts",
+    "lint": "deno lint && deno fmt --check",
     "test": "deno test",
     "test:watch": "deno test --watch",
     "test:lcov": "deno test --coverage && deno coverage --lcov --output=cov.lcov",
-    "lint": "deno lint && deno fmt --check",
-    "bump": "deno run -A jsr:@mys/bump@1",
-    "publish:dry": "deno publish --dry-run"
+    "publish:dry-run": "deno publish --dry-run",
+    "bump": "deno task lint && deno task test && deno task publish:dry-run && deno run -A jsr:@mys/bump@1"
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@0.220"
