@@ -10,7 +10,7 @@
     "test": "deno test",
     "test:watch": "deno test --watch",
     "test:lcov": "deno test --coverage && deno coverage --lcov --output=cov.lcov",
-    "bump": "deno task check && deno task test && deno publish --dry-run && echo && echo ✅ Checks passed, start bumping... && echo && deno run -A jsr:@mys/bump@1"
+    "bump": "deno task check && deno task test && deno publish --dry-run && pnpm i -C npm && pnpm run -C npm build && pnpm publish -C npm --no-git-checks --dry-run && pnpm run -C npm clean && echo && echo ✅ Checks passed, start bumping... && echo && deno run -A jsr:@mys/bump@1"
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@0.220"
