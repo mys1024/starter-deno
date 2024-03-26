@@ -21,10 +21,10 @@
   "publish": {
     "include": [
       "src",
-      "LICENSE",
-      "README*.md",
       "deno.json",
-      "deno.jsonc"
+      "deno.jsonc",
+      "README*.md",
+      "LICENSE"
     ]
   },
   "lint": {
