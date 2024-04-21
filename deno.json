@@ -10,7 +10,7 @@
     "test:watch": "deno test --watch",
     "test:lcov": "deno test --coverage && deno coverage --lcov --output=cov.lcov",
     "check:lint": "deno check src/**/*.ts test/**/*.ts && deno lint && deno fmt --check",
-    "check:all": "deno task check:lint && deno task test && deno publish --allow-dirty --dry-run && pnpm i -C npm && pnpm run -C npm build && pnpm publish -C npm --no-git-checks --dry-run && pnpm run -C npm clean && echo && echo ✅ All checks passed && echo",
+    "check:all": "deno task check:lint && deno task test && deno publish --allow-dirty --dry-run && cd npm && pnpm i && pnpm run build && pnpm publish --no-git-checks --dry-run && pnpm run clean && echo && echo ✅ All checks passed && echo",
     "bump": "deno task check:all && deno run -A jsr:@mys/bump@1"
   },
   "imports": {
