@@ -73,7 +73,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  # If you don't want to publish this package to JSR, please remove this job.
+  # If you don't need to publish this package to JSR, please remove this job.
   publish-to-jsr:
     needs: test
     name: Publish to JSR (${{ inputs.is-release && 'real' || 'dry-run' }})
