@@ -3,8 +3,6 @@
 # starter-deno
 
 [![jsr-version](https://img.shields.io/jsr/v/@mys/starter-deno?style=flat-square&color=%23f7df1e)](https://jsr.io/@mys/starter-deno)
-[![npm-version](https://img.shields.io/npm/v/starter-deno?style=flat-square&color=%23cb3837)](https://www.npmjs.com/package/starter-deno)
-[![npm-minzip](https://img.shields.io/bundlephobia/minzip/starter-deno?style=flat-square&label=minzip)](https://bundlephobia.com/package/starter-deno)
 [![docs](https://img.shields.io/badge/docs-reference-blue?style=flat-square)](https://jsr.io/@mys/starter-deno/doc?style=flat-square)
 [![stars](https://img.shields.io/github/stars/mys1024/starter-deno?style=flat-square)](https://github.com/mys1024/starter-deno)
 [![license](https://img.shields.io/github/license/mys1024/starter-deno?&style=flat-square)](./LICENSE)

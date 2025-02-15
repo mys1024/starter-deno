@@ -9,7 +9,3 @@ __snapshots__
 
 coverage
 cov.lcov
-
-/npm/src
-/npm/README.md
-/npm/LICENSE

@@ -9,7 +9,7 @@
     "test:watch": "deno test --watch",
     "test:lcov": "deno test --coverage && deno coverage --lcov --output=cov.lcov",
     "check:lint": "deno check src/**/*.ts && deno lint && deno fmt --check",
-    "check:all": "deno task check:lint && deno task test && deno publish --allow-dirty --dry-run && cd npm && pnpm i && pnpm run build && pnpm publish --no-git-checks --dry-run && pnpm run clean && echo && echo ✅ All checks passed && echo",
+    "check:all": "deno task check:lint && deno task test && deno publish --allow-dirty --dry-run && echo ✅ All checks passed && echo",
     "bump": "deno task check:all && deno run -A --no-lock jsr:@mys/bump@^1.0.3"
   },
   "imports": {
@@ -25,16 +25,6 @@
       "deno.jsonc",
       "README*.md",
       "LICENSE"
-    ]
-  },
-  "lint": {
-    "exclude": [
-      "npm"
-    ]
-  },
-  "fmt": {
-    "exclude": [
-      "npm"
     ]
   }
 }

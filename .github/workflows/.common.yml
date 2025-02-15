@@ -12,11 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        deno-version:
-          - v2
-        os:
-          - ubuntu-latest
-          - windows-latest
+        deno-version: [ v2 ]
+        os: [ ubuntu-latest, windows-latest ]
     name: Test on deno-${{ matrix.deno-version }}, ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     env:
@@ -95,38 +92,3 @@ jobs:
 
       - name: Publish (${{ inputs.is-release && 'real' || 'dry-run' }})
         run: deno publish ${{ inputs.is-release && ' ' || '--dry-run' }}
-
-  # If you don't need to publish this package to npm, please remove this job.
-  publish-to-npm:
-    needs: test
-    name: Publish to npm (${{ inputs.is-release && 'real' || 'dry-run' }})
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          package_json_file: npm/package.json
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          cache-dependency-path: npm/pnpm-lock.yaml
-          cache: pnpm
-
-      - name: Install
-        run: pnpm i -C npm
-
-      - name: Build
-        run: pnpm run -C npm build
-
-      - name: Publish (${{ inputs.is-release && 'real' || 'dry-run' }})
-        run: pnpm publish -C npm --no-git-checks --provenance --access public ${{ inputs.is-release && ' ' || '--dry-run' }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
