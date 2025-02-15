@@ -33,7 +33,7 @@ jobs:
           key: ${{ matrix.os }}-${{ hashFiles('deno.lock') }}
 
       - name: Setup Deno
-        uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@v2
         with:
           deno-version: ${{ matrix.deno-version }}
 
@@ -66,7 +66,9 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Deno
-        uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2
 
       - name: Changelog
         run: deno run -A npm:changelogithub
@@ -87,7 +89,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Deno
-        uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2
 
       - name: Publish (${{ inputs.is-release && 'real' || 'dry-run' }})
         run: deno publish ${{ inputs.is-release && ' ' || '--dry-run' }}
