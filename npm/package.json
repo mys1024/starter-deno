@@ -1,10 +1,10 @@
 {
   "name": "starter-deno",
-  "version": "0.1.9",
+  "version": "0.0.0",
   "description": "A Deno stater template 🦕",
   "type": "module",
   "author": "mys1024",
-  "packageManager": "pnpm@9.4.0",
+  "packageManager": "pnpm@10.4.0",
   "license": "MIT",
   "homepage": "https://github.com/mys1024/starter-deno#readme",
   "repository": "https://github.com/mys1024/starter-deno.git",
@@ -22,18 +22,18 @@
     "build": "pnpm run prepare && tsup src/main.ts --format cjs,esm --dts",
     "build:clean": "pnpm run build && pnpm run clean"
   },
+  "types": "./dist/main.d.ts",
   "main": "./dist/main.js",
   "module": "./dist/main.js",
-  "types": "./dist/main.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/main.d.ts",
       "import": "./dist/main.js",
-      "require": "./dist/main.cjs",
-      "types": "./dist/main.d.ts"
+      "require": "./dist/main.cjs"
     }
   },
   "devDependencies": {
-    "tsup": "^8.2.2",
-    "typescript": "^5.5.4"
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
   }
 }

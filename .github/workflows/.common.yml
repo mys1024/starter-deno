@@ -113,7 +113,6 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          registry-url: 'https://registry.npmjs.org'
           cache-dependency-path: npm/pnpm-lock.yaml
           cache: pnpm
 
