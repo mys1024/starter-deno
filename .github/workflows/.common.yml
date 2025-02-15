@@ -12,8 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        deno-version: [ v2 ]
-        os: [ ubuntu-latest, windows-latest ]
+        deno-version: [v2]
+        os: [ubuntu-latest, windows-latest]
     name: Test on deno-${{ matrix.deno-version }}, ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     env:
